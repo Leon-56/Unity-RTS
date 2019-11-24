@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections.Generic;
 
-public static class UnityTools
+public static class UnityTool
 {
     public static GameObject FindGameObject(string GameObjectName)
     {

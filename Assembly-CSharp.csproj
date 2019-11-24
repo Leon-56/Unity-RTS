@@ -8,7 +8,8 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <RootNamespace></RootNamespace>
+    <RootNamespace>
+    </RootNamespace>
     <ProjectGuid>{B709EF44-07CB-2FED-88C8-A0F1EF07BF08}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
@@ -63,6 +64,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Scripts\GameLoop.cs" />
     <Compile Include="Assets\Scripts\RTSGame.cs" />
     <Compile Include="Assets\Scripts\SceneState\BattleState.cs" />
     <Compile Include="Assets\Scripts\SceneState\ISceneState.cs" />
@@ -70,7 +72,7 @@
     <Compile Include="Assets\Scripts\SceneState\SceneStateController.cs" />
     <Compile Include="Assets\Scripts\SceneState\StartState.cs" />
     <Compile Include="Assets\Scripts\Tools\UITool.cs" />
-    <Compile Include="Assets\Scripts\Tools\UnityTools.cs" />
+    <Compile Include="Assets\Scripts\Tools\UnityTool.cs" />
     <None Include="Assets\PolygonWar\Materials\Shader\Particle VertexLit Blended_Backface.shader" />
     <Reference Include="Unity.Timeline.Editor">
       <HintPath>C:/GameProject/Unity-RTS/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
