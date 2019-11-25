@@ -20,10 +20,34 @@ public class RTSGame
     // SceneState Controller
     private bool m_bGameOver = false;
 
+    // Game System.
+    private GameEventSystem m_GameEventSystem = null;
+    private CampSystem m_CampSystem = null;
+    private StageSystem m_StageSystem = null;
+    private CharacterSystem m_CharacterSystem = null;
+    private APSystem m_APSystem = null;
+    private AchievementSystem m_Achievement = null;
+    // UI
+    private CampInfoUI m_CampInfoUI = null;
+    private GamePauseUI m_GamePauseUI = null;
+    private GameStateInfoUI m_GameStateInfoUI = null;
+    private SoldierInfoUI m_SoldierInfoUI = null;
+
     private RTSGame() { }
 
     // Init RTSGame.
-    public void Initinal() { }
+    public void Initinal()
+    {
+        // Scene Control.
+        m_bGameOver = false;
+        // Game System.
+        m_GameEventSystem = new GameEventSystem();
+        m_CampSystem = new CampSystem();
+        m_StageSystem = new StageSystem();
+        m_CharacterSystem = new CharacterSystem();
+        m_APSystem = new APSystem();
+        m_Achievement = new AchievementSystem();    
+    }
 
     // Release RTSGame.
     public void Release() { }

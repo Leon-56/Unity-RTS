@@ -14,7 +14,7 @@ public class GameLoop : MonoBehaviour
         GameObject.DontDestroyOnLoad(this.gameObject);
 
         // Random number seed.
-        UnityEngine.Random.seed = (int)DateTime.Now.Ticks;
+        UnityEngine.Random.seed = (int) DateTime.Now.Ticks;
     }
 
     void Start()
