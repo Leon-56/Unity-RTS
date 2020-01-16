@@ -3,7 +3,11 @@ using System;
 using System.Collections;
 
 
-public class SoldierInfoUI
+public class SoldierInfoUI : IUserInterface
 {
+    public SoldierInfoUI(RTSGame RTS) : base(RTS)
+    {
+        
+    }
 }
 

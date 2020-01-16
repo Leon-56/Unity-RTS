@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GameEventSystem
+public class GameEventSystem : IGameSystem
 {
-    public GameEventSystem() { }
+    public GameEventSystem(RTSGame RTS) : base(RTS) { }
 }

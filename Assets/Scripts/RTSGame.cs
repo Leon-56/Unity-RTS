@@ -41,12 +41,18 @@ public class RTSGame
         // Scene Control.
         m_bGameOver = false;
         // Game System.
-        m_GameEventSystem = new GameEventSystem();
-        m_CampSystem = new CampSystem();
-        m_StageSystem = new StageSystem();
-        m_CharacterSystem = new CharacterSystem();
-        m_APSystem = new APSystem();
-        m_Achievement = new AchievementSystem();    
+        m_GameEventSystem = new GameEventSystem(this);
+        m_CampSystem = new CampSystem(this);
+        m_StageSystem = new StageSystem(this);
+        m_CharacterSystem = new CharacterSystem(this);
+        m_APSystem = new APSystem(this);
+        m_Achievement = new AchievementSystem(this);
+        
+        // UI
+        m_CampInfoUI = new CampInfoUI(this);
+        m_GamePauseUI = new GamePauseUI(this);
+        m_GameStateInfoUI = new GameStateInfoUI(this);
+        m_SoldierInfoUI = new SoldierInfoUI(this);
     }
 
     // Release RTSGame.
@@ -62,6 +68,13 @@ public class RTSGame
     public bool ThisGameIsOver()
     {
         return m_bGameOver;
+    }
+
+    public int GetEnemyCount()
+    {
+        if (m_CharacterSystem != null)
+            return m_CharacterSystem.GetEnemyCount();
+        return 0;
     }
 
 }

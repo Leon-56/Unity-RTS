@@ -2,7 +2,13 @@
 using System;
 using System.Collections;
 
-public class CharacterSystem
+public class CharacterSystem : IGameSystem
 {
-    public CharacterSystem() { }
+    public CharacterSystem(RTSGame RTS) : base(RTS) { }
+
+    public int GetEnemyCount()
+    {
+
+        return 0;
+    }
 }

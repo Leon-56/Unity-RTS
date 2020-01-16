@@ -3,6 +3,10 @@ using System;
 using System.Collections;
 
 
-public class CampInfoUI
+public class CampInfoUI : IUserInterface
 {
+    public CampInfoUI(RTSGame RTS) : base(RTS)
+    {
+        
+    }
 }

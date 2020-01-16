@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class StageSystem
+public class StageSystem : IGameSystem
 {
-    public StageSystem() { }
+    public StageSystem(RTSGame RTS) : base(RTS) { }
 }

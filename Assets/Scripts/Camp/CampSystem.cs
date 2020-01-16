@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CampSystem
+public class CampSystem : IGameSystem
 {
-    public CampSystem() { }
+    public CampSystem(RTSGame RTS) : base(RTS) { }
 }

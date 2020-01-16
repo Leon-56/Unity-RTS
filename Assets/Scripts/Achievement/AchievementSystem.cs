@@ -2,7 +2,7 @@
 using System;
 using System.Collections;
 
-public class AchievementSystem
+public class AchievementSystem : IGameSystem
 {
-    public AchievementSystem() { } 
+    public AchievementSystem(RTSGame RTS) : base(RTS) { } 
 }

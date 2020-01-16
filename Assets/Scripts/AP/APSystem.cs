@@ -2,7 +2,7 @@
 using System;
 using System.Collections;
 
-public class APSystem
+public class APSystem : IGameSystem
 {
-    public APSystem() { }
+    public APSystem(RTSGame RTS) : base(RTS) { }
 }
