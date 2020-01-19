@@ -1,7 +1,8 @@
 ﻿namespace RTS.GameEvent
 {
-    public interface IGameEventObserver
+    public abstract class IGameEventObserver
     {
-        
+        public abstract void Update();
+        public abstract	void SetSubject( IGameEventSubject Subject );
     }
 }
