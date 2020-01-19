@@ -1,17 +1,21 @@
 ﻿using UnityEngine;
 using System.Collections;
+using RTS;
 
-public abstract class IGameSystem
+namespace RTS.GameSystem
 {
-    protected RTSGame m_RTSGame = null;
-
-    public IGameSystem(RTSGame RTS)
+    public abstract class IGameSystem
     {
-        m_RTSGame = RTS;
+        protected RTSGame m_RTSGame = null;
+
+        public IGameSystem(RTSGame RTS)
+        {
+            m_RTSGame = RTS;
+        }
+    
+        public virtual void Initialize(){ }
+        public virtual void Relese() { }
+        public virtual void Update() { }
+    
     }
-    
-    public virtual void Initialize(){ }
-    public virtual void Relese() { }
-    public virtual void Update() { }
-    
 }

@@ -1,8 +1,12 @@
 ﻿using UnityEngine;
 using System;
 using System.Collections;
+using RTS;
 
-public class AchievementSystem : IGameSystem
+namespace RTS.GameSystem
 {
-    public AchievementSystem(RTSGame RTS) : base(RTS) { } 
+    public class AchievementSystem : IGameSystem
+    {
+        public AchievementSystem(RTSGame RTS) : base(RTS) { } 
+    }
 }

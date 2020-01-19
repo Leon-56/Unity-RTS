@@ -2,42 +2,46 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ISceneState
+namespace RTS.Scene
 {
-    // State name.
-    private string m_StateName = "ISceneState";
-    public string StateName
+    public class ISceneState
     {
-        get
+        // State name.
+        private string m_StateName = "ISceneState";
+        public string StateName
         {
-            return m_StateName;
+            get
+            {
+                return m_StateName;
+            }
+            set
+            {
+                m_StateName = value;
+            }
         }
-        set
+
+        // Controller.
+        protected SceneStateController m_Controller = null;
+
+        public ISceneState(SceneStateController Controller)
         {
-            m_StateName = value;
+            m_Controller = Controller;
         }
-    }
 
-    // Controller.
-    protected SceneStateController m_Controller = null;
+        // Start.
+        public virtual void StateBegin() { }
 
-    public ISceneState(SceneStateController Controller)
-    {
-        m_Controller = Controller;
-    }
+        // End.
+        public virtual void StateEnd() { }
 
-    // Start.
-    public virtual void StateBegin() { }
+        // Update.
+        public virtual void StateUpdate() { }
 
-    // End.
-    public virtual void StateEnd() { }
+        public override string ToString()
+        {
+            return string.Format("[I_SceneState: StateName = {0}]", StateName);
+        }
 
-    // Update.
-    public virtual void StateUpdate() { }
-
-    public override string ToString()
-    {
-        return string.Format("[I_SceneState: StateName = {0}]", StateName);
     }
 
 }

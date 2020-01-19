@@ -1,45 +1,49 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using RTS;
 using UnityEngine;
 
-public class BattleState : ISceneState
+namespace RTS.Scene
 {
-    public BattleState(SceneStateController Controller) : base(Controller)
+    public class BattleState : ISceneState
     {
-        this.StateName = "BattleState";
+        public BattleState(SceneStateController Controller) : base(Controller)
+        {
+            this.StateName = "BattleState";
+        }
+
+        // Start.
+        public override void StateBegin()
+        {
+            RTSGame.Instance.Initinal();
+        }
+
+        // End.
+        public override void StateEnd()
+        {
+            RTSGame.Instance.Release();
+        }
+
+        // Update.
+        public override void StateUpdate()
+        {
+            // Input.
+            InputProcess();
+
+            // Game Logic.
+            RTSGame.Instance.Update();
+
+            // Render by Unity.
+
+            // Is Game Over ?
+            if (RTSGame.Instance.ThisGameIsOver())
+                m_Controller.SetState(new MainMenuState(m_Controller), "MainMenuScene");
+        }
+
+        private void InputProcess()
+        {
+            // Player Inputs.
+        }
+
     }
-
-    // Start.
-    public override void StateBegin()
-    {
-        RTSGame.Instance.Initinal();
-    }
-
-    // End.
-    public override void StateEnd()
-    {
-        RTSGame.Instance.Release();
-    }
-
-    // Update.
-    public override void StateUpdate()
-    {
-        // Input.
-        InputProcess();
-
-        // Game Logic.
-        RTSGame.Instance.Update();
-
-        // Render by Unity.
-
-        // Is Game Over ?
-        if (RTSGame.Instance.ThisGameIsOver())
-            m_Controller.SetState(new MainMenuState(m_Controller), "MainMenuScene");
-    }
-
-    private void InputProcess()
-    {
-        // Player Inputs.
-    }
-
 }

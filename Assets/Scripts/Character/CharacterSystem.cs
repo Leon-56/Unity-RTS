@@ -1,14 +1,18 @@
 ﻿using UnityEngine;
 using System;
 using System.Collections;
+using RTS;
 
-public class CharacterSystem : IGameSystem
+namespace RTS.GameSystem
 {
-    public CharacterSystem(RTSGame RTS) : base(RTS) { }
-
-    public int GetEnemyCount()
+    public class CharacterSystem : IGameSystem
     {
+        public CharacterSystem(RTSGame RTS) : base(RTS) { }
 
-        return 0;
+        public int GetEnemyCount()
+        {
+
+            return 0;
+        }
     }
 }

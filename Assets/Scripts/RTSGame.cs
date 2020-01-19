@@ -1,80 +1,86 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using RTS.GameSystem;
+using RTS.GameSystem.GameEvent;
+using RTS.UI;
 using UnityEngine;
 
-
-public class RTSGame
+namespace RTS
 {
-    // Siglenton
-    private static RTSGame _instance;
-    public static RTSGame Instance
+    public class RTSGame
     {
-        get
+        // Siglenton
+        private static RTSGame _instance;
+        public static RTSGame Instance
         {
-            if (_instance == null)
-                _instance = new RTSGame();
-            return _instance;
+            get
+            {
+                if (_instance == null)
+                    _instance = new RTSGame();
+                return _instance;
+            }
         }
-    }
 
-    // SceneState Controller
-    private bool m_bGameOver = false;
+        // SceneState Controller
+        private bool m_bGameOver = false;
 
-    // Game System.
-    private GameEventSystem m_GameEventSystem = null;
-    private CampSystem m_CampSystem = null;
-    private StageSystem m_StageSystem = null;
-    private CharacterSystem m_CharacterSystem = null;
-    private APSystem m_APSystem = null;
-    private AchievementSystem m_Achievement = null;
-    // UI
-    private CampInfoUI m_CampInfoUI = null;
-    private GamePauseUI m_GamePauseUI = null;
-    private GameStateInfoUI m_GameStateInfoUI = null;
-    private SoldierInfoUI m_SoldierInfoUI = null;
-
-    private RTSGame() { }
-
-    // Init RTSGame.
-    public void Initinal()
-    {
-        // Scene Control.
-        m_bGameOver = false;
         // Game System.
-        m_GameEventSystem = new GameEventSystem(this);
-        m_CampSystem = new CampSystem(this);
-        m_StageSystem = new StageSystem(this);
-        m_CharacterSystem = new CharacterSystem(this);
-        m_APSystem = new APSystem(this);
-        m_Achievement = new AchievementSystem(this);
-        
+        private GameEventSystem m_GameEventSystem = null;
+        private CampSystem m_CampSystem = null;
+        private StageSystem m_StageSystem = null;
+        private CharacterSystem m_CharacterSystem = null;
+        private APSystem m_APSystem = null;
+        private AchievementSystem m_Achievement = null;
         // UI
-        m_CampInfoUI = new CampInfoUI(this);
-        m_GamePauseUI = new GamePauseUI(this);
-        m_GameStateInfoUI = new GameStateInfoUI(this);
-        m_SoldierInfoUI = new SoldierInfoUI(this);
-    }
+        private CampInfoUI m_CampInfoUI = null;
+        private GamePauseUI m_GamePauseUI = null;
+        private GameStateInfoUI m_GameStateInfoUI = null;
+        private SoldierInfoUI m_SoldierInfoUI = null;
 
-    // Release RTSGame.
-    public void Release() { }
+        private RTSGame() { }
 
-    // Update RTSGame.
-    public void Update() { }
+        // Init RTSGame.
+        public void Initinal()
+        {
+            // Scene Control.
+            m_bGameOver = false;
+            // Game System.
+            m_GameEventSystem = new GameEventSystem(this);
+            m_CampSystem = new CampSystem(this);
+            m_StageSystem = new StageSystem(this);
+            m_CharacterSystem = new CharacterSystem(this);
+            m_APSystem = new APSystem(this);
+            m_Achievement = new AchievementSystem(this);
+        
+            // UI
+            m_CampInfoUI = new CampInfoUI(this);
+            m_GamePauseUI = new GamePauseUI(this);
+            m_GameStateInfoUI = new GameStateInfoUI(this);
+            m_SoldierInfoUI = new SoldierInfoUI(this);
+        }
 
-    // Player Inputs.
-    private void InputProcess() { }
+        // Release RTSGame.
+        public void Release() { }
 
-    // Game State.
-    public bool ThisGameIsOver()
-    {
-        return m_bGameOver;
-    }
+        // Update RTSGame.
+        public void Update() { }
 
-    public int GetEnemyCount()
-    {
-        if (m_CharacterSystem != null)
-            return m_CharacterSystem.GetEnemyCount();
-        return 0;
+        // Player Inputs.
+        private void InputProcess() { }
+
+        // Game State.
+        public bool ThisGameIsOver()
+        {
+            return m_bGameOver;
+        }
+
+        public int GetEnemyCount()
+        {
+            if (m_CharacterSystem != null)
+                return m_CharacterSystem.GetEnemyCount();
+            return 0;
+        }
+
     }
 
 }

@@ -1,8 +1,12 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using RTS;
 using UnityEngine;
 
-public class CampSystem : IGameSystem
+namespace RTS.GameSystem
 {
-    public CampSystem(RTSGame RTS) : base(RTS) { }
+    public class CampSystem : IGameSystem
+    {
+        public CampSystem(RTSGame RTS) : base(RTS) { }
+    }   
 }

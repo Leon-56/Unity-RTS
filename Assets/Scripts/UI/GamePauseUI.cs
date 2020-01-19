@@ -1,11 +1,15 @@
 ﻿using UnityEngine;
 using System;
 using System.Collections;
+using RTS;
 
-public class GamePauseUI : IUserInterface
+namespace RTS.UI
 {
-    public GamePauseUI(RTSGame RTS) : base(RTS)
+    public class GamePauseUI : IUserInterface
     {
+        public GamePauseUI(RTSGame RTS) : base(RTS)
+        {
         
+        }
     }
 }

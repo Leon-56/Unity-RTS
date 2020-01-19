@@ -1,13 +1,16 @@
 ﻿using UnityEngine;
 using System;
 using System.Collections;
+using RTS;
 
-
-public class SoldierInfoUI : IUserInterface
+namespace RTS.UI
 {
-    public SoldierInfoUI(RTSGame RTS) : base(RTS)
+    public class SoldierInfoUI : IUserInterface
     {
+        public SoldierInfoUI(RTSGame RTS) : base(RTS)
+        {
         
+        }
     }
 }
 

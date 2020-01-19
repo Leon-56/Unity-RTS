@@ -1,11 +1,16 @@
 ﻿using UnityEngine;
 using System;
 using System.Collections;
+using RTS;
 
-public class GameStateInfoUI : IUserInterface
+namespace RTS.UI
 {
-    public GameStateInfoUI(RTSGame RTS) : base(RTS)
+    public class GameStateInfoUI : IUserInterface
     {
+        public GameStateInfoUI(RTSGame RTS) : base(RTS)
+        {
         
+        }
     }
+
 }

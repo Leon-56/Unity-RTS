@@ -1,8 +1,12 @@
 ﻿using UnityEngine;
 using System;
 using System.Collections;
+using RTS;
 
-public class APSystem : IGameSystem
+namespace RTS.GameSystem
 {
-    public APSystem(RTSGame RTS) : base(RTS) { }
+    public class APSystem : IGameSystem
+    {
+        public APSystem(RTSGame RTS) : base(RTS) { }
+    }
 }

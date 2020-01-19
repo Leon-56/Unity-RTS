@@ -1,12 +1,15 @@
 ﻿using UnityEngine;
 using System;
 using System.Collections;
+using RTS;
 
-
-public class CampInfoUI : IUserInterface
+namespace RTS.UI
 {
-    public CampInfoUI(RTSGame RTS) : base(RTS)
+    public class CampInfoUI : IUserInterface
     {
+        public CampInfoUI(RTSGame RTS) : base(RTS)
+        {
         
+        }
     }
 }
