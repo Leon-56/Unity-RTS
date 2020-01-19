@@ -63,8 +63,15 @@
     <Compile Include="Assets\Scripts\BaseClass\IUserInterface.cs" />
     <Compile Include="Assets\Scripts\Camp\CampSystem.cs" />
     <Compile Include="Assets\Scripts\Character\CharacterSystem.cs" />
+    <Compile Include="Assets\Scripts\Character\Enemy\IEnemy.cs" />
+    <Compile Include="Assets\Scripts\Character\ICharacter.cs" />
+    <Compile Include="Assets\Scripts\Character\Soldier\ISoldier.cs" />
     <Compile Include="Assets\Scripts\GameEvent\GameEventObserver\IGameEventObserver.cs" />
+    <Compile Include="Assets\Scripts\GameEvent\GameEventSubject\EnemyKilledSubject.cs" />
     <Compile Include="Assets\Scripts\GameEvent\GameEventSubject\IGameEventSubject.cs" />
+    <Compile Include="Assets\Scripts\GameEvent\GameEventSubject\NewStageSubject.cs" />
+    <Compile Include="Assets\Scripts\GameEvent\GameEventSubject\SoldierKilledSubject.cs" />
+    <Compile Include="Assets\Scripts\GameEvent\GameEventSubject\SoldierUpgateSubject.cs" />
     <Compile Include="Assets\Scripts\GameEvent\GameEventSystem.cs" />
     <Compile Include="Assets\Scripts\GameLoop.cs" />
     <Compile Include="Assets\Scripts\RTSGame.cs" />
@@ -627,6 +634,13 @@
     <Reference Include="System.Xml.Serialization">
       <HintPath>C:/Program Files/Unity/Hub/Editor/2019.3.0b1/Editor/Data/NetStandard/compat/2.0.0/shims/netfx/System.Xml.Serialization.dll</HintPath>
     </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Assets\Scripts\GameEvent\GameEventObserver\ComboObserver" />
+    <Folder Include="Assets\Scripts\GameEvent\GameEventObserver\EnemyKilledObserver" />
+    <Folder Include="Assets\Scripts\GameEvent\GameEventObserver\NewStageObserver" />
+    <Folder Include="Assets\Scripts\GameEvent\GameEventObserver\SoldierKilledObserver" />
+    <Folder Include="Assets\Scripts\GameEvent\GameEventObserver\SoldierUpgateObserver" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
