@@ -2,6 +2,7 @@
 using System;
 using System.Collections;
 using RTS;
+using RTS.GameSystem.Soldier;
 
 namespace RTS.UI
 {
@@ -10,6 +11,11 @@ namespace RTS.UI
         public SoldierInfoUI(RTSGame RTS) : base(RTS)
         {
         
+        }
+        
+        public void RefreshSoldier( ISoldier Soldier  )
+        {
+            
         }
     }
 }

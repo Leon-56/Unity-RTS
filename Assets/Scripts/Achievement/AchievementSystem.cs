@@ -13,5 +13,10 @@ namespace RTS.GameSystem
         {
             
         }
+
+        public void SetNowStageLevel(int NowStageLevel)
+        {
+            
+        }
     }
 }
