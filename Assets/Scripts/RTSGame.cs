@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using RTS.GameEvent;
 using RTS.GameSystem;
 using RTS.GameSystem.GameEvent;
 using RTS.UI;
@@ -84,6 +85,11 @@ namespace RTS
         public void ShowGameMsg( string Msg)
         {
             m_GameStateInfoUI.ShowMsg( Msg );
+        }
+        
+        public void RegisterGameEvent( ENUM_GameEvent emGameEvent, IGameEventObserver Observer)
+        {
+            m_GameEventSystem.RegisterObserver( emGameEvent , Observer );
         }
 
     }
