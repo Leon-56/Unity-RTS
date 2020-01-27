@@ -18,7 +18,7 @@ namespace RTS.GameEvent
         // Fire Soldier upgate event
         public override void SetParam( System.Object Param )
         {
-            base.SetParam( Param);
+            base.SetParam(Param);
             m_Soldier = Param as ISoldier;
             m_UpgateCount++;
             

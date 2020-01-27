@@ -80,6 +80,11 @@ namespace RTS
                 return m_CharacterSystem.GetEnemyCount();
             return 0;
         }
+        
+        public void ShowGameMsg( string Msg)
+        {
+            m_GameStateInfoUI.ShowMsg( Msg );
+        }
 
     }
 

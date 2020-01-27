@@ -9,7 +9,12 @@ namespace RTS.UI
     {
         public GameStateInfoUI(RTSGame RTS) : base(RTS)
         {
-        
+
+        }
+
+        public void ShowMsg(string Msg)
+        {
+
         }
     }
 

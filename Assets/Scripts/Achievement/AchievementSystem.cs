@@ -7,6 +7,11 @@ namespace RTS.GameSystem
 {
     public class AchievementSystem : IGameSystem
     {
-        public AchievementSystem(RTSGame RTS) : base(RTS) { } 
+        public AchievementSystem(RTSGame RTS) : base(RTS) { }
+
+        public void AddEnemyKilledCount()
+        {
+            
+        }
     }
 }
