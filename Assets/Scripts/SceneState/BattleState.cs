@@ -1,15 +1,10 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using RTS;
-using UnityEngine;
-
-namespace RTS.Scene
+﻿namespace RTS.Scene
 {
     public class BattleState : ISceneState
     {
         public BattleState(SceneStateController Controller) : base(Controller)
         {
-            this.StateName = "BattleState";
+            StateName = "BattleState";
         }
 
         // Start.

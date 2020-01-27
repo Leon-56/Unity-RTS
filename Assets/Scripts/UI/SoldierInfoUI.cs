@@ -17,6 +17,11 @@ namespace RTS.UI
         {
             
         }
+
+        public void ShowInfo(ISoldier Soldier)
+        {
+            
+        }
     }
 }
 

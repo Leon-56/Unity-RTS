@@ -11,7 +11,6 @@ namespace RTS.GameSystem
 
         public int GetEnemyCount()
         {
-
             return 0;
         }
     }

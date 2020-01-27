@@ -2,7 +2,10 @@
 using System.Collections.Generic;
 using RTS.GameEvent;
 using RTS.GameSystem;
+using RTS.GameSystem.Camp;
+using RTS.GameSystem.Character;
 using RTS.GameSystem.GameEvent;
+using RTS.GameSystem.Soldier;
 using RTS.UI;
 using UnityEngine;
 
@@ -31,7 +34,7 @@ namespace RTS
         private StageSystem m_StageSystem = null;
         private CharacterSystem m_CharacterSystem = null;
         private APSystem m_APSystem = null;
-        private AchievementSystem m_Achievement = null;
+        private AchievementSystem m_AchievementSystem = null;
         // UI
         private CampInfoUI m_CampInfoUI = null;
         private GamePauseUI m_GamePauseUI = null;
@@ -51,7 +54,7 @@ namespace RTS
             m_StageSystem = new StageSystem(this);
             m_CharacterSystem = new CharacterSystem(this);
             m_APSystem = new APSystem(this);
-            m_Achievement = new AchievementSystem(this);
+            m_AchievementSystem = new AchievementSystem(this);
         
             // UI
             m_CampInfoUI = new CampInfoUI(this);
@@ -64,10 +67,54 @@ namespace RTS
         public void Release() { }
 
         // Update RTSGame.
-        public void Update() { }
+        public void Update()
+        {
+            InputProcess();
+            
+            // Game System
+            m_GameEventSystem.Update();
+            m_CampSystem.Update();
+            m_StageSystem.Update();
+            m_CharacterSystem.Update();
+            m_APSystem.Update();
+            m_AchievementSystem.Update();
+            
+            // UI
+            m_CampInfoUI.Update();
+            m_SoldierInfoUI.Update();
+            m_GameStateInfoUI.Update();
+            m_GamePauseUI.Update(); 
+        }
 
         // Player Inputs.
-        private void InputProcess() { }
+        private void InputProcess()
+        {
+            // Mouse
+            if(Input.GetMouseButtonUp(0) == false)
+                return;
+
+            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            RaycastHit[] hits = Physics.RaycastAll(ray);
+
+            foreach (var hit in hits)
+            {
+                // Camp OnClick or not
+                CampOnClick CampClickScript = hit.transform.gameObject.GetComponent<CampOnClick>();
+                if (CampClickScript != null)
+                {
+                    CampClickScript.OnClick();
+                    return;
+                }
+                
+                // Character OnClick or not
+                SoldierOnClick SoldierClickScript = hit.transform.gameObject.GetComponent<SoldierOnClick>();
+                if (SoldierClickScript != null)
+                {
+                    SoldierClickScript.OnClick();
+                    return;
+                }
+            }
+        }
 
         // Game State.
         public bool ThisGameIsOver()
@@ -90,6 +137,18 @@ namespace RTS
         public void RegisterGameEvent( ENUM_GameEvent emGameEvent, IGameEventObserver Observer)
         {
             m_GameEventSystem.RegisterObserver( emGameEvent , Observer );
+        }
+        
+        public void ShowCampInfo( ICamp Camp )
+        {
+            m_CampInfoUI.ShowInfo( Camp );
+            m_SoldierInfoUI.Hide();
+        }
+
+        public void ShowSoldierInfo(ISoldier Soldier)
+        {
+            m_SoldierInfoUI.ShowInfo( Soldier );
+            m_CampInfoUI.Hide();
         }
 
     }

@@ -2,6 +2,7 @@
 using System;
 using System.Collections;
 using RTS;
+using RTS.GameSystem;
 
 namespace RTS.UI
 {
@@ -10,6 +11,11 @@ namespace RTS.UI
         public CampInfoUI(RTSGame RTS) : base(RTS)
         {
         
+        }
+
+        public void ShowInfo(ICamp Camp)
+        {
+            
         }
     }
 }
