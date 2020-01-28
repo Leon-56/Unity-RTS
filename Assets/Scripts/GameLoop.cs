@@ -14,7 +14,7 @@ namespace RTS
         void Awake()
         {
             // Transform scene will not be deleted.
-            GameObject.DontDestroyOnLoad(this.gameObject);
+            DontDestroyOnLoad(gameObject);
 
             // Random number seed.
             UnityEngine.Random.seed = (int) DateTime.Now.Ticks;
