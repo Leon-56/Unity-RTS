@@ -23,5 +23,14 @@
             return m_emEnemyType;
         }
 
+        public override void Attack(ICharacter Target)
+        {
+            
+        }
+
+        public override void UnderAttack(ICharacter Attacker)
+        {
+            
+        }
     }
 }

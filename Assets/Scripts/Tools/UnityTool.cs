@@ -1,47 +1,55 @@
 ﻿using UnityEngine;
-using System.Collections.Generic;
 
-public static class UnityTool
+namespace RTS.Tool
 {
-    public static GameObject FindGameObject(string GameObjectName)
+    public static class UnityTool
     {
-        GameObject pTmpGameObj = GameObject.Find(GameObjectName);
-        if(pTmpGameObj == null)
+        public static GameObject FindGameObject(string GameObjectName)
         {
-            Debug.Log("Can not find GameObject[" + GameObjectName + "]");
-            return null;
-        }
-        return pTmpGameObj;
-    }
-
-    public static GameObject FindChildGameObject(GameObject Container, string gameobjectName)
-    {
-        if (Container == null)
-        {
-            Debug.LogError("NGUICustomTools.GetChild : Container =null");
-            return null;
-        }
-
-        Transform pGameObjectTF = null;
-
-        if (Container.name == gameobjectName)
-            pGameObjectTF = Container.transform;
-        else
-        {
-            // Find all Elements.
-            Transform[] allChildren = Container.transform.GetComponentsInChildren<Transform>();
-            foreach (Transform child in allChildren)
+            GameObject pTmpGameObj = GameObject.Find(GameObjectName);
+            if(pTmpGameObj == null)
             {
-                if (child.name == gameobjectName)
+                Debug.Log("Can not find GameObject[" + GameObjectName + "]");
+                return null;
+            }
+            return pTmpGameObj;
+        }
+
+        public static GameObject FindChildGameObject(GameObject Container, string gameobjectName)
+        {
+            if (Container == null)
+            {
+                Debug.LogError("NGUICustomTools.GetChild : Container =null");
+                return null;
+            }
+
+            Transform pGameObjectTF = null;
+
+            if (Container.name == gameobjectName)
+                pGameObjectTF = Container.transform;
+            else
+            {
+                // Find all Elements.
+                Transform[] allChildren = Container.transform.GetComponentsInChildren<Transform>();
+                foreach (Transform child in allChildren)
                 {
-                    if (pGameObjectTF == null)
-                        pGameObjectTF = child;
-                    else
-                        Debug.LogWarning("Container[" + Container.name + "][" + gameobjectName + "]");
+                    if (child.name == gameobjectName)
+                    {
+                        if (pGameObjectTF == null)
+                            pGameObjectTF = child;
+                        else
+                            Debug.LogWarning("Container[" + Container.name + "][" + gameobjectName + "]");
+                    }
                 }
             }
+
+            return pGameObjectTF.gameObject;
         }
 
-        return pGameObjectTF.gameObject;
+        public static void Attach(GameObject mGameObject, GameObject getGameObject, Vector3 zero)
+        {
+        
+        }
     }
+
 }

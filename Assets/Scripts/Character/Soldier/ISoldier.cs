@@ -27,5 +27,14 @@
             return m_emSoldier;
         }
 
+        public override void Attack(ICharacter Target)
+        {
+            WeaponAttackTarget(Target);
+        }
+
+        public override void UnderAttack(ICharacter Attacker)
+        {
+            
+        }
     }
 }

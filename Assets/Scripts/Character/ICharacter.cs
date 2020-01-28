@@ -1,4 +1,6 @@
-﻿using UnityEngine;
+﻿using RTS.Tool;
+using RTS.Weapon;
+using UnityEngine;
 using UnityEngine.AI;
 
 namespace RTS.GameSystem
@@ -15,6 +17,8 @@ namespace RTS.GameSystem
         protected bool m_bCheckKilled = false;
         protected float m_RemoveTimer = 1.5f;
         protected bool m_bCanRemove = false;
+
+        private IWeapon m_Weapon = null;
         
         public ICharacter(){ }
 
@@ -52,6 +56,51 @@ namespace RTS.GameSystem
         {
             return m_IconSpriteName;
         }
+        
+        public Vector3 GetPosition()
+        {
+            return m_GameObject.transform.position;
+        }
+
+        public void SetWeapon(IWeapon Weapon)
+        {
+            if (m_Weapon != null)
+                m_Weapon.Release();
+            m_Weapon = Weapon;
+
+            m_Weapon.SetOwner(this);
+
+            UnityTool.Attach(m_GameObject, m_Weapon.GetGameObject(), Vector3.zero);
+        }
+
+        public IWeapon GetWeapon()
+        {
+            return m_Weapon;
+        }
+
+        protected void SetWeaponAtkPlusValue(int Value)
+        {
+            m_Weapon.SetAtkPlusValue(Value);
+        }
+
+        protected void WeaponAttackTarget(ICharacter Target)
+        {
+            m_Weapon.Fire(Target);
+        }
+
+        public int GetAtkValue()
+        {
+            return m_Weapon.GetAtkValue();
+        }
+
+        public float GetAttackRange()
+        {
+            return m_Weapon.GetAtkRange();
+        }
+
+        public abstract void Attack(ICharacter Target);
+        
+        public abstract void UnderAttack( ICharacter Attacker);
         
     }
 }

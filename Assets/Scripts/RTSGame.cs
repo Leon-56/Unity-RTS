@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using RTS.GameEvent;
+﻿using RTS.GameEvent;
 using RTS.GameSystem;
 using RTS.GameSystem.Camp;
 using RTS.GameSystem.Character;
