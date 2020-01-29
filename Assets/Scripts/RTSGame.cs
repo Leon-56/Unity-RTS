@@ -17,7 +17,7 @@ namespace RTS
         {
             get
             {
-                if (_instance == null)
+                if (_instance == null) 
                     _instance = new RTSGame();
                 return _instance;
             }

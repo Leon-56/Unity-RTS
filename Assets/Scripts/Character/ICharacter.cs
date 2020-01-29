@@ -1,4 +1,5 @@
-﻿using RTS.Tool;
+﻿using RTS.GameAttr;
+using RTS.Tool;
 using RTS.Weapon;
 using UnityEngine;
 using UnityEngine.AI;
@@ -19,6 +20,7 @@ namespace RTS.GameSystem
         protected bool m_bCanRemove = false;
 
         private IWeapon m_Weapon = null;
+        protected ICharacterAttr m_Attribute = null;
         
         public ICharacter(){ }
 
@@ -78,6 +80,16 @@ namespace RTS.GameSystem
             return m_Weapon;
         }
 
+        public virtual void SetCharacterAttr(ICharacterAttr CharacterAttr)
+        {
+            m_Attribute = CharacterAttr;
+            m_Attribute.InitAttr();
+
+            m_NavmeshAgent.speed = m_Attribute.GetMoveSpeed();
+
+            m_Name = m_Attribute.GetAttrName();
+        }
+
         protected void SetWeaponAtkPlusValue(int Value)
         {
             m_Weapon.SetAtkPlusValue(Value);
@@ -97,10 +109,20 @@ namespace RTS.GameSystem
         {
             return m_Weapon.GetAtkRange();
         }
+        
+        public virtual void Attack(ICharacter Target)
+        {
+            SetWeaponAtkPlusValue(m_Attribute.GetAtkPlusValue());
+            
+            WeaponAttackTarget(Target);
+        }
 
-        public abstract void Attack(ICharacter Target);
-        
-        public abstract void UnderAttack( ICharacter Attacker);
-        
+        public virtual void UnderAttack(ICharacter Attacker)
+        {
+            m_Attribute.CalDmgValue(Attacker);
+            
+            if(m_Attribute.GetNowHP() <= 0)
+                Debug.Log("角色阵亡");
+        }
     }
 }
