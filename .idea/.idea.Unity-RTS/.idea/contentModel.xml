@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ContentModelStore">
+    <e p="C:\GameProject\Unity-RTS" t="IncludeRecursive">
+      <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
+      <e p="Assets" t="Include">
+        <e p="PolygonWar" t="Include">
+          <e p="Materials" t="Include">
+            <e p="Shader" t="Include">
+              <e p="Particle VertexLit Blended_Backface.shader" t="Include" />
+            </e>
+          </e>
+        </e>
+        <e p="Scripts" t="Include">
+          <e p="Achievement" t="Include">
+            <e p="AchievementSystem.cs" t="Include" />
+          </e>
+          <e p="AP" t="Include">
+            <e p="APSystem.cs" t="Include" />
+          </e>
+          <e p="BaseClass" t="Include">
+            <e p="IGameSystem.cs" t="Include" />
+            <e p="IUserInterface.cs" t="Include" />
+          </e>
+          <e p="Camp" t="Include">
+            <e p="CampSystem.cs" t="Include" />
+            <e p="ICamp.cs" t="Include" />
+            <e p="Script" t="Include">
+              <e p="CampOnClick.cs" t="Include" />
+            </e>
+          </e>
+          <e p="Character" t="Include">
+            <e p="CharacterSystem.cs" t="Include" />
+            <e p="Enemy" t="Include">
+              <e p="IEnemy.cs" t="Include" />
+            </e>
+            <e p="ICharacter.cs" t="Include" />
+            <e p="Script" t="Include">
+              <e p="SoldierOnClick.cs" t="Include" />
+            </e>
+            <e p="Soldier" t="Include">
+              <e p="ISoldier.cs" t="Include" />
+            </e>
+          </e>
+          <e p="GameAttr" t="Include">
+            <e p="CharacterAttr" t="Include">
+              <e p="AttrStrategy" t="Include">
+                <e p="EnemyAttrStrategy.cs" t="Include" />
+                <e p="IAttrStrategy.cs" t="Include" />
+                <e p="SoldierAttrStrategy.cs" t="Include" />
+              </e>
+              <e p="EnemyAttr.cs" t="Include" />
+              <e p="ICharacterAttr.cs" t="Include" />
+              <e p="SoldierAttr.cs" t="Include" />
+            </e>
+          </e>
+          <e p="GameEvent" t="Include">
+            <e p="GameEventObserver" t="Include">
+              <e p="EnemyKilledObserver" t="Include">
+                <e p="EnemyKilledObserverAchievement.cs" t="Include" />
+                <e p="EnemyKilledObserverStageScore.cs" t="Include" />
+                <e p="EnemyKilledObserverUI.cs" t="Include" />
+              </e>
+              <e p="IGameEventObserver.cs" t="Include" />
+              <e p="NewStageObserver" t="Include">
+                <e p="NewStageObserverAchievement.cs" t="Include" />
+              </e>
+              <e p="SoldierKilledObserver" t="Include">
+                <e p="SoldierKilledObserverAchievement.cs" t="Include" />
+                <e p="SoldierKilledObserverUI.cs" t="Include" />
+              </e>
+              <e p="SoldierUpgateObserver" t="Include">
+                <e p="SoldierUpgateObserverUI.cs" t="Include" />
+              </e>
+            </e>
+            <e p="GameEventSubject" t="Include">
+              <e p="EnemyKilledSubject.cs" t="Include" />
+              <e p="IGameEventSubject.cs" t="Include" />
+              <e p="NewStageSubject.cs" t="Include" />
+              <e p="SoldierKilledSubject.cs" t="Include" />
+              <e p="SoldierUpgateSubject.cs" t="Include" />
+            </e>
+            <e p="GameEventSystem.cs" t="Include" />
+          </e>
+          <e p="GameLoop.cs" t="Include" />
+          <e p="RTSGame.cs" t="Include" />
+          <e p="SceneState" t="Include">
+            <e p="BattleState.cs" t="Include" />
+            <e p="ISceneState.cs" t="Include" />
+            <e p="MainMenuState.cs" t="Include" />
+            <e p="SceneStateController.cs" t="Include" />
+            <e p="StartState.cs" t="Include" />
+          </e>
+          <e p="Stage" t="Include">
+            <e p="StageSystem.cs" t="Include" />
+          </e>
+          <e p="Tools" t="Include">
+            <e p="UITool.cs" t="Include" />
+            <e p="UnityTool.cs" t="Include" />
+          </e>
+          <e p="UI" t="Include">
+            <e p="CampInfoUI.cs" t="Include" />
+            <e p="GamePauseUI.cs" t="Include" />
+            <e p="GameStateInfoUI.cs" t="Include" />
+            <e p="SoldierInfoUI.cs" t="Include" />
+          </e>
+          <e p="Weapon" t="Include">
+            <e p="IWeapon.cs" t="Include" />
+            <e p="WeaponGun.cs" t="Include" />
+            <e p="WeaponRifle.cs" t="Include" />
+            <e p="WeaponRocket.cs" t="Include" />
+          </e>
+        </e>
+      </e>
+      <e p="obj" t="ExcludeRecursive" />
+      <e p="Packages" t="ExcludeRecursive" />
+      <e p="Temp\bin" t="ExcludeRecursive" />
+      <e p="Unity-RTS.sln" t="IncludeFlat" />
+    </e>
+    <e p="C:\Users\YuG\.Rider2019.3\system\extResources" t="IncludeRecursive" />
+    <e p="C:\Users\YuG\.Rider2019.3\system\resharper-host\local\Transient\ReSharperHost\v193\SolutionCaches\_Unity-RTS.-1983166954.00" t="ExcludeRecursive" />
+  </component>
+</project>
