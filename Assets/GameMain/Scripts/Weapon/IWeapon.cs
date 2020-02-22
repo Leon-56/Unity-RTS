@@ -5,6 +5,7 @@ namespace RTS.Weapon
 {
     public abstract class IWeapon
     {
+        // 属性
         protected int m_AtkPlusValue = 0;
         protected int m_Atk = 0;
         protected float m_Range = 0.0f;
@@ -82,6 +83,22 @@ namespace RTS.Weapon
             return 0;
         }
 
-        public abstract void Fire(ICharacter theTarget);
+        public void Fire(ICharacter theTarget)
+        {
+            // 显示武器发射/枪口特效
+            ShowShootEffect();
+            
+            // 显示子弹特效(子类实现)
+            DoShowBulletEffect(theTarget);
+            
+            // 播放音效(子类实现)
+            DoShowSoundEffect();
+            
+            theTarget.UnderAttack(m_WeaponOwner);
+        }
+        
+        protected abstract void DoShowBulletEffect( ICharacter theTarget );
+        
+        protected abstract void DoShowSoundEffect();
     }
 }

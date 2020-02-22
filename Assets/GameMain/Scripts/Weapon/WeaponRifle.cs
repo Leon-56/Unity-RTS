@@ -5,14 +5,15 @@ namespace RTS.Weapon
     public class WeaponRifle : IWeapon
     {
         public WeaponRifle() {}
-        
-        public override void Fire(ICharacter theTarget)
+
+        protected override void DoShowBulletEffect(ICharacter theTarget)
         {
-            ShowShootEffect();
             ShowBulletEffect(theTarget.GetPosition(), 0.5f, 0.2f);
+        }
+
+        protected override void DoShowSoundEffect()
+        {
             ShowSoundEffect("RifleShot");
-            
-            theTarget.UnderAttack(m_WeaponOwner);
         }
     }
 }

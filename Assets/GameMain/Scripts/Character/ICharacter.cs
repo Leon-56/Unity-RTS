@@ -89,6 +89,14 @@ namespace RTS.GameSystem
 
             m_Name = m_Attribute.GetAttrName();
         }
+        
+        public void Killed()
+        {
+            if( m_bKilled == true)
+                return;
+            m_bKilled = true;
+            m_bCheckKilled = false;
+        }
 
         protected void SetWeaponAtkPlusValue(int Value)
         {
@@ -117,12 +125,6 @@ namespace RTS.GameSystem
             WeaponAttackTarget(Target);
         }
 
-        public virtual void UnderAttack(ICharacter Attacker)
-        {
-            m_Attribute.CalDmgValue(Attacker);
-            
-            if(m_Attribute.GetNowHP() <= 0)
-                Debug.Log("角色阵亡");
-        }
+        public abstract void UnderAttack(ICharacter Attacker);
     }
 }

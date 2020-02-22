@@ -30,7 +30,21 @@
 
         public override void UnderAttack(ICharacter Attacker)
         {
-            
+            // 计算伤害值
+             m_Attribute.CalDmgValue(Attacker);
+
+             DoPlayHitSound();
+             DoShowHitEffect();
+             
+             // 是否阵亡
+             if(m_Attribute.GetNowHP() <= 0)
+                 Killed();
         }
+
+        // 播放音效
+        public abstract void DoPlayHitSound();
+
+        // 播放特效
+        public abstract void DoShowHitEffect();
     }
 }
