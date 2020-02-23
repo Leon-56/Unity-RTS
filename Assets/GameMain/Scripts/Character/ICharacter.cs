@@ -90,6 +90,23 @@ namespace RTS.GameSystem
             m_Name = m_Attribute.GetAttrName();
         }
         
+        // 移动
+        public void MoveTo(Vector3 Position)
+        {
+            
+        }
+        
+        // 停止移动
+        public void StopMove()
+        {
+            
+        }
+
+        public bool IsKilled()
+        {
+            return m_bKilled;
+        }
+        
         public void Killed()
         {
             if( m_bKilled == true)
