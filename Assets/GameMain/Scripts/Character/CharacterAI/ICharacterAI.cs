@@ -12,10 +12,10 @@ namespace RTS.GameSystem.CharacterAI
         protected const float ATTACK_COOLD_DOWN = 1f; // 攻击冷却时间
         protected float m_CoolDown = ATTACK_COOLD_DOWN;
 
-        public ICharacterAI(ICharacter CHaracter)
+        public ICharacterAI(ICharacter Character)
         {
-            m_Character = CHaracter;
-            m_AttackRange = CHaracter.GetAttackRange();
+            m_Character = Character;
+            m_AttackRange = Character.GetAttackRange();
         }
         
         // 更换AI状态

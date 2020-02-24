@@ -1,4 +1,6 @@
-﻿using RTS.GameAttr;
+﻿using System.Collections.Generic;
+using RTS.GameAttr;
+using RTS.GameSystem.CharacterAI;
 using RTS.Tool;
 using RTS.Weapon;
 using UnityEngine;
@@ -21,6 +23,8 @@ namespace RTS.GameSystem
 
         private IWeapon m_Weapon = null;
         protected ICharacterAttr m_Attribute = null;
+
+        protected ICharacterAI m_AI = null;
         
         public ICharacter(){ }
 
@@ -42,6 +46,24 @@ namespace RTS.GameSystem
             {
                 GameObject.Destroy(m_GameObject);
             }
+        }
+        
+        // 设置AI
+        public void SetAI(ICharacterAI CharacterAI)
+        {
+            m_AI = CharacterAI;
+        }
+        
+        // 更新AI
+        public void UpdateAI(List<ICharacter> Targets)
+        {
+            m_AI.Update(Targets);
+        }
+        
+        // 通知AI有角色被删除
+        public void RemoveAITarget(ICharacter Targets)
+        {
+            m_AI.RemoveAITarget(Targets);
         }
 
         public string GetName()

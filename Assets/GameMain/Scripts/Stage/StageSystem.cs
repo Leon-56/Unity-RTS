@@ -12,4 +12,6 @@ public class StageSystem : IGameSystem
     {
         return ;
     }
+    
+    public void LostHeart() {}
 }
