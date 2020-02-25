@@ -137,6 +137,12 @@ namespace RTS
             m_GameEventSystem.RegisterObserver( emGameEvent , Observer );
         }
         
+        // 通知游戏事件
+        public void NotifyGameEvent( ENUM_GameEvent emGameEvent, System.Object Param )
+        {
+            m_GameEventSystem.NotifySubject( emGameEvent, Param);
+        }
+        
         public void ShowCampInfo( ICamp Camp )
         {
             m_CampInfoUI.ShowInfo( Camp );

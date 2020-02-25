@@ -57,6 +57,11 @@ namespace RTS.Weapon
             if( m_GameObject != null)
                 GameObject.Destroy( m_GameObject);
         }
+
+        public void Update()
+        {
+            
+        }
         
         public void SetOwner( ICharacter Owner )
         {

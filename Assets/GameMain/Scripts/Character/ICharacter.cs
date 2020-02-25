@@ -66,6 +66,19 @@ namespace RTS.GameSystem
             m_AI.RemoveAITarget(Targets);
         }
 
+        // 更新
+        public void Update()
+        {
+            if( m_bKilled)
+            {
+                m_RemoveTimer -= Time.deltaTime;
+                if( m_RemoveTimer <=0 )
+                    m_bCanRemove = true;
+            }
+		
+            m_Weapon.Update();
+        }
+
         public string GetName()
         {
             return m_Name;
@@ -135,6 +148,21 @@ namespace RTS.GameSystem
                 return;
             m_bKilled = true;
             m_bCheckKilled = false;
+        }
+        
+        // 是否确认阵亡过
+        public bool CheckKilledEvent()
+        {
+            if( m_bCheckKilled)
+                return true;
+            m_bCheckKilled = true;
+            return false;
+        }
+        
+        //  是否可以移除
+        public bool CanRemove()
+        {
+            return m_bCanRemove;
         }
 
         protected void SetWeaponAtkPlusValue(int Value)
