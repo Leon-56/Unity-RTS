@@ -3,6 +3,15 @@ using UnityEngine;
 
 namespace RTS.Weapon
 {
+    public enum ENUM_Weapon
+    {
+        Null 	= 0,
+        Gun 	= 1,
+        Rifle	= 2,	
+        Rocket	= 3,	
+        Max	,
+    }
+    
     public abstract class IWeapon
     {
         // 属性
