@@ -1,7 +1,9 @@
-﻿namespace RTS.Factory
+﻿using RTS.Weapon;
+
+namespace RTS.Factory
 {
-    public class IWeaponFactory
+    public abstract class IWeaponFactory
     {
-        
+        public abstract IWeapon CreateWeapon(ENUM_Weapon enumWeapon);
     }
 }
