@@ -2,6 +2,7 @@
 using RTS.GameSystem;
 using RTS.GameSystem.Camp;
 using RTS.GameSystem.Character;
+using RTS.GameSystem.Enemy;
 using RTS.GameSystem.GameEvent;
 using RTS.GameSystem.Soldier;
 using RTS.UI;
@@ -154,6 +155,35 @@ namespace RTS
             m_SoldierInfoUI.ShowInfo( Soldier );
             m_CampInfoUI.Hide();
         }
+        
+        // 增加Soldier
+        public void AddSoldier( ISoldier theSoldier)
+        {
+            if( m_CharacterSystem !=null)
+                m_CharacterSystem.AddSoldier( theSoldier );
+        }
+
+        // 移除Soldier
+        public void RemoveSoldier( ISoldier theSoldier)
+        {
+            if( m_CharacterSystem !=null)
+                m_CharacterSystem.RemoveSoldier( theSoldier );
+        }
+	
+        // 增加Enemy
+        public void AddEnemy( IEnemy theEnemy)
+        {
+            if( m_CharacterSystem !=null)
+                m_CharacterSystem.AddEnemy( theEnemy );
+        }
+
+        // 移除Enemy
+        public void RemoveEnemy( IEnemy theEnemy)
+        {
+            if( m_CharacterSystem !=null)
+                m_CharacterSystem.RemoveEnemy( theEnemy );
+        }
+
 
     }
 
