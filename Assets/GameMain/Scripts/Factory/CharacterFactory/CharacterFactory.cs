@@ -1,4 +1,5 @@
-﻿using RTS.GameSystem.Enemy;
+﻿using RTS.GameSystem.CharacterBuilder;
+using RTS.GameSystem.Enemy;
 using RTS.GameSystem.Soldier;
 using RTS.Weapon;
 using UnityEngine;
@@ -7,72 +8,80 @@ namespace RTS.Factory
 {
     public class CharacterFactory : ICharacterFactory
     {
+        // 角色构建者
+        private CharacterBuilderSystem m_BuilderDirector = new CharacterBuilderSystem(RTSGame.Instance);
+        
         public override ISoldier CreateSoldier(ENUM_Soldier enumSoldier, ENUM_Weapon enumWeapon, 
             int Level, Vector3 SpawnPosition, Vector3 AttackPosition)
         {
-            // 产生对应得Character
-            ISoldier theSoldier = null;
+            // 产生Soldier的参数
+            SoldierBuildParam SoldierParam = new SoldierBuildParam();
             switch (enumSoldier)
             {
                 case ENUM_Soldier.Rookie:
-                    theSoldier = new SoldierRookie();
+                    SoldierParam.NewCharacter = new SoldierRookie();
                     break;
                 case ENUM_Soldier.Sergeant:
-                    theSoldier = new SoldierSergeant();
+                    SoldierParam.NewCharacter = new SoldierSergeant();
                     break;
                 case ENUM_Soldier.Captain:
-                    theSoldier = new SoldierCaptain();
+                    SoldierParam.NewCharacter = new SoldierCaptain();
                     break;
                 default:
                     Debug.LogWarning("CreateSoldier:无法产生[" + enumSoldier + "]");
                     return null;
             }
-            
-            // 设置模型
-           
-            // 加入武器
-            
-            // 获取Soldier的属性，设置给角色
-            
-            // 加入AI
-            
-            // 加入管理器
 
-            return theSoldier;
+            if (SoldierParam.NewCharacter == null)
+                return null;
+            
+            // 设置共享参数
+            SoldierParam.emWeapon = enumWeapon;
+            SoldierParam.SpawnPosition = SpawnPosition;
+            SoldierParam.Lv = Level;
+            
+            // 产生对应的Builder及设置参数
+            SoldierBuilder theSoldierBuilder = new SoldierBuilder();
+            theSoldierBuilder.SetBuildParam(SoldierParam);
+            
+            // 产生
+            m_BuilderDirector.Construct(theSoldierBuilder);
+            return SoldierParam.NewCharacter as ISoldier;
         }
 
         public override IEnemy CreateEnemy(ENUM_Enemy enumEnemy, ENUM_Weapon enumWeapon, 
             Vector3 SpawnPostion, Vector3 AttackPostion)
         {
-            // 产生对应的Character
-            IEnemy theEnemy = null;
+            // 产生Enenmy的参数
+            EnemyBuildParam EnemyParam = new EnemyBuildParam();
             switch (enumEnemy)
             {
                 case ENUM_Enemy.Elf:
-                    theEnemy = new EnemyElf();
+                    EnemyParam.NewCharacter = new EnemyElf();
                     break;
                 case ENUM_Enemy.Troll:
-                    theEnemy = new EnemyTroll();
+                    EnemyParam.NewCharacter = new EnemyTroll();
                     break;
                 case ENUM_Enemy.Ogre:
-                    theEnemy = new EnemyOgre();
+                    EnemyParam.NewCharacter = new EnemyOgre();
                     break;
                 default:
                     Debug.LogWarning("CreateEnemy:无法产生[" + enumEnemy + "]");
                     return null;
             }
-            
-            // 设置模型
-           
-            // 加入武器
-            
-            // 获取Soldier的属性，设置给角色
-            
-            // 加入AI
-            
-            // 加入管理器
 
-            return theEnemy;
+            if (EnemyParam.NewCharacter == null)
+                return null;
+
+            EnemyParam.emWeapon = enumWeapon;
+            EnemyParam.SpawnPosition = SpawnPostion;
+            EnemyParam.AttackPosition = AttackPostion;
+            
+            EnemyBuilder theEnemyBuilder = new EnemyBuilder();
+            theEnemyBuilder.SetBuildParam(EnemyParam);
+            
+            m_BuilderDirector.Construct(theEnemyBuilder);
+            return EnemyParam.NewCharacter as IEnemy;
         }
     }
 }

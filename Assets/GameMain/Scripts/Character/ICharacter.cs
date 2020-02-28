@@ -68,7 +68,7 @@ namespace RTS.GameSystem
             m_AI.RemoveAITarget(Targets);
         }
 
-        public int GetAttrID(int AttrID)
+        public int GetAttrID()
         {
             return m_AttrID;
         }
