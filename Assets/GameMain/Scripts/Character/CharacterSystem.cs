@@ -32,7 +32,7 @@ namespace RTS.GameSystem
         }
         
         // 删除Enemey
-        public void Remove(IEnemy theEnemy)
+        public void RemoveEnemy(IEnemy theEnemy)
         {
             m_Enemies.Remove(theEnemy);
         }

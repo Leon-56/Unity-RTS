@@ -15,6 +15,8 @@ namespace RTS.GameSystem
         protected NavMeshAgent m_NavmeshAgent = null;
         protected AudioSource m_Audio = null;
         protected string m_IconSpriteName = "";
+        protected string m_AssetName = "";
+        protected int m_AttrID;
 
         protected bool m_bKilled = false;
         protected bool m_bCheckKilled = false;
@@ -66,6 +68,11 @@ namespace RTS.GameSystem
             m_AI.RemoveAITarget(Targets);
         }
 
+        public int GetAttrID(int AttrID)
+        {
+            return m_AttrID;
+        }
+
         // 更新
         public void Update()
         {
@@ -92,6 +99,12 @@ namespace RTS.GameSystem
         public string GetIconSpriteName()
         {
             return m_IconSpriteName;
+        }
+        
+        // 取得Asset名字
+        public string GetAssetName()
+        {
+            return m_AssetName;
         }
         
         public Vector3 GetPosition()
