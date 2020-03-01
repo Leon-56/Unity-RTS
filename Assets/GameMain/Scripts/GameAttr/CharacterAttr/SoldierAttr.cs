@@ -7,12 +7,13 @@
         
         public SoldierAttr() {}
 
-        public SoldierAttr(int MaxHP, float MoveSpeed, string AttrName)
+        public void SetSoldierAttr(BaseAttr baseAttr)
         {
-            m_MaxHP = MaxHP;
-            m_NowHP = MaxHP;
-            m_MoveSpeed = MoveSpeed;
-            m_AttrName = AttrName;
+            // 共享组件
+            base.SetBaseAttr(baseAttr);
+            // 外部参数
+            m_SoldierLv = 1;
+            m_AddMaxHP = 0;
         }
 
         public void SetSoldierLv(int Lv)

@@ -6,13 +6,10 @@
         
         public EnemyAttr() {}
 
-        public EnemyAttr(int MaxHP, float MoveSpeed, int CritRate, string AttrName)
+        public void SetEnemyAttr(BaseAttr baseAttr)
         {
-            m_MaxHP = MaxHP;
-            m_NowHP = MaxHP;
-            m_MoveSpeed = MoveSpeed;
-            m_CritRate = CritRate;
-            m_AttrName = AttrName;
+            base.SetBaseAttr(baseAttr);
+            m_CritRate = 0;
         }
 
         public int GetCritRate()

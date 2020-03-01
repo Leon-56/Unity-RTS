@@ -4,13 +4,22 @@ namespace RTS.GameAttr
 {
     public abstract class ICharacterAttr
     {
-        protected int m_MaxHP = 0;
+        protected BaseAttr m_BaseAttr = null;
         protected int m_NowHP = 0;
-        protected float m_MoveSpeed = 1.0f;
-        protected string m_AttrName = "";
-
         protected IAttrStrategy m_AttrStrategy = null;
 
+        // 设置基本属性
+        public void SetBaseAttr(BaseAttr BaseAttr)
+        {
+            m_BaseAttr = BaseAttr;
+        }
+        
+        // 获取基本属性
+        public BaseAttr GetBaseAttr()
+        {
+            return m_BaseAttr;
+        }
+        
         public int GetNowHP()
         {
             return m_NowHP;
@@ -18,7 +27,7 @@ namespace RTS.GameAttr
 
         public virtual int GetMaxHP()
         {
-            return m_MaxHP;
+            return m_BaseAttr.GetMaxHP();
         }
         
         public void FullNowHP()
@@ -28,12 +37,12 @@ namespace RTS.GameAttr
 
         public virtual float GetMoveSpeed()
         {
-            return m_MoveSpeed;
+            return m_BaseAttr.GetMoveSpeed();
         }
         
         public virtual string GetAttrName()
         {
-            return m_AttrName;
+            return m_BaseAttr.GetAttrName();
         }
 
         public void SetAttrStrategy(IAttrStrategy theAttrStrategy)
