@@ -1,4 +1,6 @@
-﻿using RTS.GameSystem;
+﻿using RTS.GameAttr;
+using RTS.GameSystem;
+using RTS.Tool;
 using UnityEngine;
 
 namespace RTS.Weapon
@@ -16,8 +18,9 @@ namespace RTS.Weapon
     {
         // 属性
         protected int m_AtkPlusValue = 0;
-        protected int m_Atk = 0;
-        protected float m_Range = 0.0f;
+        // protected int m_Atk = 0;
+        // protected float m_Range = 0.0f;
+        protected WeaponAttr m_WeaponAttr = null;
 
         protected GameObject m_GameObject = null;
         protected ICharacter m_WeaponOwner = null;
@@ -76,6 +79,11 @@ namespace RTS.Weapon
         {
             m_WeaponOwner = Owner;
         }
+        
+        public void SetWeaponAttr(WeaponAttr theWeaponAttr)
+        {
+            m_WeaponAttr = theWeaponAttr;
+        }
 
         public void SetAtkPlusValue(int Value)
         {
@@ -89,12 +97,33 @@ namespace RTS.Weapon
 
         public int GetAtkValue()
         {
-            return m_Atk + m_AtkPlusValue;
+            return m_WeaponAttr.Atk + m_AtkPlusValue;
         }
 
         public float GetAtkRange()
         {
-            return 0;
+            return m_WeaponAttr.AtkRange;
+        }
+        
+        // 设置Unity物体
+        public void SetGameObject( GameObject theGameObject )
+        {
+            m_GameObject = theGameObject ;
+
+            //  设置特效
+            SetupEffect();
+        }
+        
+        // 设置特效
+        protected void SetupEffect()
+        {
+            GameObject EffectObj = UnityTool.FindChildGameObject( m_GameObject ,"Effect");
+
+            // 取得特效使用的元件
+            m_Line = EffectObj.GetComponent <LineRenderer> ();
+            m_Particles = EffectObj.GetComponent<ParticleSystem> ();
+            m_Audio = EffectObj.GetComponent<AudioSource> ();
+            m_Light = EffectObj.GetComponent<Light> ();
         }
 
         public void Fire(ICharacter theTarget)
