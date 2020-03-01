@@ -5,7 +5,7 @@ namespace RTS.Factory
 {
     public class AttrFactory : IAttrFactory
     {
-        public override IWeapon CreateWeaponAttr(ENUM_Weapon emWeapon)
+        public override WeaponAttr GetWeaponAttr(int AttrID)
         {
             return null;
         }
